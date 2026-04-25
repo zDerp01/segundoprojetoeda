@@ -1,4 +1,5 @@
 #include <iostream>
+#include "mercado.h"
 
 using namespace std;
 
