@@ -1,8 +1,8 @@
 [
 {
-  "directory": "C:/Users/afons/CLionProjects/projetoeda2/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\main.cpp.obj -c C:\\Users\\afons\\CLionProjects\\projetoeda2\\main.cpp",
-  "file": "C:/Users/afons/CLionProjects/projetoeda2/main.cpp",
-  "output": "C:/Users/afons/CLionProjects/projetoeda2/cmake-build-debug/CMakeFiles/untitled.dir/main.cpp.obj"
+  "directory": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\main.cpp.obj -c C:\\Users\\afons\\Documents\\GitHub\\segundoprojetoeda\\main.cpp",
+  "file": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/main.cpp",
+  "output": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/main.cpp.obj"
 }
 ]
