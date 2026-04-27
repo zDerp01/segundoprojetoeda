@@ -3,5 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(untitled main.cpp
-        mercado.h)
+add_executable(untitled main.cpp afonso.cpp joaorodrigo.cpp paulo.cpp mercado.h)

@@ -56,6 +56,27 @@ build CMakeFiles/untitled.dir/main.cpp.obj: CXX_COMPILER__untitled_unscanned_Deb
   OBJECT_DIR = CMakeFiles\untitled.dir
   OBJECT_FILE_DIR = CMakeFiles\untitled.dir
 
+build CMakeFiles/untitled.dir/afonso.cpp.obj: CXX_COMPILER__untitled_unscanned_Debug C$:/Users/afons/Documents/GitHub/segundoprojetoeda/afonso.cpp || cmake_object_order_depends_target_untitled
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\untitled.dir\afonso.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
+
+build CMakeFiles/untitled.dir/joaorodrigo.cpp.obj: CXX_COMPILER__untitled_unscanned_Debug C$:/Users/afons/Documents/GitHub/segundoprojetoeda/joaorodrigo.cpp || cmake_object_order_depends_target_untitled
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\untitled.dir\joaorodrigo.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
+
+build CMakeFiles/untitled.dir/paulo.cpp.obj: CXX_COMPILER__untitled_unscanned_Debug C$:/Users/afons/Documents/GitHub/segundoprojetoeda/paulo.cpp || cmake_object_order_depends_target_untitled
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\untitled.dir\paulo.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\untitled.dir
+  OBJECT_FILE_DIR = CMakeFiles\untitled.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled
@@ -64,7 +85,7 @@ build CMakeFiles/untitled.dir/main.cpp.obj: CXX_COMPILER__untitled_unscanned_Deb
 #############################################
 # Link the executable untitled.exe
 
-build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj
+build untitled.exe: CXX_EXECUTABLE_LINKER__untitled_Debug CMakeFiles/untitled.dir/main.cpp.obj CMakeFiles/untitled.dir/afonso.cpp.obj CMakeFiles/untitled.dir/joaorodrigo.cpp.obj CMakeFiles/untitled.dir/paulo.cpp.obj
   CONFIG = Debug
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

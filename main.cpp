@@ -4,5 +4,15 @@
 using namespace std;
 
 int main() {
-    cout << "Hello world" << endl;
+    srand(time(NULL));
+
+    Sector* setores = nullptr;
+    Produto* armazem = nullptr;
+
+    inicializarSupermercado(setores);
+    inicializarArmazem(armazem, setores);
+
+    mostrarSuper(setores, armazem);
+
+    return 0;
 }
