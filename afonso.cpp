@@ -138,6 +138,8 @@ void mostrarSuper(Sector* listaSectores, Produto* armazem) {
         sAtual = sAtual->next;
     }
 
+    system("pause");
+
     //armazem
     cout << "\n====================== ARMAZEM ======================" << endl;
     cout << left << setw(26) << "PRODUTO"

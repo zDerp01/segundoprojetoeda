@@ -1,26 +1,26 @@
 [
 {
-  "directory": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\main.cpp.obj -c C:\\Users\\afons\\Documents\\GitHub\\segundoprojetoeda\\main.cpp",
-  "file": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/main.cpp",
-  "output": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/main.cpp.obj"
+  "directory": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\main.cpp.obj -c \"C:\\Users\\Rodrigo Santos\\OneDrive - Secretaria Regional de Educação\\Documentos\\GitHub\\segundoprojetoeda\\main.cpp\"",
+  "file": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/main.cpp",
+  "output": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/main.cpp.obj"
 },
 {
-  "directory": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\afonso.cpp.obj -c C:\\Users\\afons\\Documents\\GitHub\\segundoprojetoeda\\afonso.cpp",
-  "file": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/afonso.cpp",
-  "output": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/afonso.cpp.obj"
+  "directory": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\afonso.cpp.obj -c \"C:\\Users\\Rodrigo Santos\\OneDrive - Secretaria Regional de Educação\\Documentos\\GitHub\\segundoprojetoeda\\afonso.cpp\"",
+  "file": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/afonso.cpp",
+  "output": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/afonso.cpp.obj"
 },
 {
-  "directory": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\joaorodrigo.cpp.obj -c C:\\Users\\afons\\Documents\\GitHub\\segundoprojetoeda\\joaorodrigo.cpp",
-  "file": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/joaorodrigo.cpp",
-  "output": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/joaorodrigo.cpp.obj"
+  "directory": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\joaorodrigo.cpp.obj -c \"C:\\Users\\Rodrigo Santos\\OneDrive - Secretaria Regional de Educação\\Documentos\\GitHub\\segundoprojetoeda\\joaorodrigo.cpp\"",
+  "file": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/joaorodrigo.cpp",
+  "output": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/joaorodrigo.cpp.obj"
 },
 {
-  "directory": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug",
-  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\paulo.cpp.obj -c C:\\Users\\afons\\Documents\\GitHub\\segundoprojetoeda\\paulo.cpp",
-  "file": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/paulo.cpp",
-  "output": "C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/paulo.cpp.obj"
+  "directory": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug",
+  "command": "C:\\PROGRA~1\\JETBRA~1\\CLION2~1.3\\bin\\mingw\\bin\\G__~1.EXE -g -std=gnu++20 -fdiagnostics-color=always -o CMakeFiles\\untitled.dir\\paulo.cpp.obj -c \"C:\\Users\\Rodrigo Santos\\OneDrive - Secretaria Regional de Educação\\Documentos\\GitHub\\segundoprojetoeda\\paulo.cpp\"",
+  "file": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/paulo.cpp",
+  "output": "C:/Users/Rodrigo Santos/OneDrive - Secretaria Regional de Educação/Documentos/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir/paulo.cpp.obj"
 }
 ]
