@@ -14,7 +14,7 @@ struct Produto {
     Produto* next;
 };
 
-// Criar a estrutura para a Árvore de Vendidos
+// criar a estrutura para a Árvore de Vendidos
 struct NoVenda {
     string nome;
     int preco;
@@ -29,7 +29,6 @@ struct Sector {
     int ocupacao;
     Produto* listaProdutos;
 
-    //Ponteiro para a árvore de vendas deste setor
     NoVenda* produtosVendidos;
 
     Sector* next;
@@ -40,6 +39,8 @@ Produto* criarProduto(string nomes[], int tamanhoN, string fornecedores[], int t
 void inicializarSupermercado(Sector*& listaSectores);
 void inicializarArmazem(Produto*& armazem, Sector* listaSectores);
 void mostrarSuper(Sector* listaSectores, Produto* armazem);
+void exibirMenu(Sector* setores, Produto* armazem);
+void dezProdutosRandom(Produto*& armazem, Sector* listaSectores);
 NoVenda* inserirNaArvore(NoVenda* raiz, string nome, int preco);
 void verificarVendas(Sector* listaSectores);
 Sector* encontrarSectorParaProduto(Sector* listaSectores, string areaProduto);
