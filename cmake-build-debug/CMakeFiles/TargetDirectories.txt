@@ -1,3 +1,3 @@
-C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/untitled.dir
-C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/afons/Documents/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/jrodr/OneDrive/Documentos/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/segundoprojetoeda.dir
+C:/Users/jrodr/OneDrive/Documentos/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/jrodr/OneDrive/Documentos/GitHub/segundoprojetoeda/cmake-build-debug/CMakeFiles/rebuild_cache.dir
