@@ -18,8 +18,7 @@ NoVenda* inserirNaArvore(NoVenda* raiz, string nome, int preco) {
     // Se o preço for mais barato, vai para a esquerda, se não vai para a direita
     if (preco < raiz->preco) {
         raiz->esq = inserirNaArvore(raiz->esq, nome, preco);
-    }
-    else {
+    } else {
         raiz->dir = inserirNaArvore(raiz->dir, nome, preco);
     }
 
@@ -28,8 +27,6 @@ NoVenda* inserirNaArvore(NoVenda* raiz, string nome, int preco) {
 
 void verificarVendas(Sector* listaSectores) {
     Sector* sAtual = listaSectores;
-
-    cout << "\n--- Vendas ---" << endl;
 
     // Percorre todos os setores do supermercado
     while (sAtual != nullptr) {
@@ -51,8 +48,7 @@ void verificarVendas(Sector* listaSectores) {
                 if (pAnterior == nullptr) {
                     // Era o primeiro da lista
                     sAtual->listaProdutos = pAtual->next;
-                }
-                else {
+                } else {
                     // Estava no meio ou no fim
                     pAnterior->next = pAtual->next;
                 }
@@ -75,6 +71,7 @@ void verificarVendas(Sector* listaSectores) {
 Sector* encontrarSectorParaProduto(Sector* listaSectores, string areaProduto) {
     Sector* aux = listaSectores;
     while (aux != nullptr) {
+        // Se a área for a mesma e ainda houver lugar (ocupacao < capacidade)
         if (aux->area == areaProduto && aux->ocupacao < aux->capacidade) {
             return aux;
         }
@@ -85,7 +82,7 @@ Sector* encontrarSectorParaProduto(Sector* listaSectores, string areaProduto) {
 
 
 void reporStock(Sector* listaSectores, Produto*& armazem) {
-    cout << "\n--- Reposicao de Stock ---" << endl;
+    cout << "\n--- Processando Reposicao de Stock ---" << endl;
 
     for (int i = 0; i < 10; i++) {
         if (armazem == nullptr) {
@@ -107,15 +104,11 @@ void reporStock(Sector* listaSectores, Produto*& armazem) {
             sDestino->listaProdutos = pAposentado;
             sDestino->ocupacao++;
             cout << "Produto " << pAposentado->nome << " movido para Sector " << sDestino->id << endl;
-        }
-        else {
+        } else {
             cout << "Sem espaco nos setores para: " << pAposentado->nome << " (Area: " << pAposentado->area << ")" << endl;
             delete pAposentado;
         }
     }
-    dezProdutosRandom(armazem, listaSectores);
-    cout << "---------------------------------------------" << endl;
-    cout << "Adicionalmente, 10 produtos foram adicionados ao armazem" << endl << endl;
 }
 
 void corrigirInicializacao(Sector* listaSectores) {

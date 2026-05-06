@@ -42,36 +42,6 @@ Produto* criarProduto(string nomes[], int tamanhoN, string fornecedores[], int t
     return novo;
 }
 
-void dezProdutosRandom(Produto*& armazem, Sector* listaSectores) {
-    int tamanhoN = 0, tamanhoF = 0, tamanhoS = 0;
-    string* nomes = listarFicheiro("produtos.txt", tamanhoN);
-    string* fornecedores = listarFicheiro("fornecedores.txt", tamanhoF);
-
-    string areasNoSuper[12];
-    Sector* atual = listaSectores;
-    while (atual != nullptr && tamanhoS < 12) {
-        areasNoSuper[tamanhoS] = atual->area;
-        tamanhoS++;
-        atual = atual->next;
-    }
-
-    for (int i = 0; i < 10; i++) {
-        Produto* p = criarProduto(nomes, tamanhoN, fornecedores, tamanhoF, areasNoSuper, tamanhoS);
-
-        if (armazem == nullptr) {
-            armazem = p;
-        }
-        else {
-            Produto* aux = armazem;
-            while (aux->next != nullptr) aux = aux->next;
-            aux->next = p;
-        }
-    }
-
-    delete[] nomes;
-    delete[] fornecedores;
-}
-
 void inicializarSupermercado(Sector*& listaSectores) {
     int numSectores = 8 + rand() % 5;
 
@@ -140,7 +110,6 @@ void inicializarArmazem(Produto*& armazem, Sector* listaSectores) {
 
 void mostrarSuper(Sector* listaSectores, Produto* armazem) {
     Sector* sAtual = listaSectores;
-    int idProduto = 1;
 
     system("cls");
     cout << "\n================= SUPERMERCADO EDA =================" << endl;
@@ -169,10 +138,12 @@ void mostrarSuper(Sector* listaSectores, Produto* armazem) {
         sAtual = sAtual->next;
     }
 
+    system("pause");
+
     //armazem
     cout << "\n====================== ARMAZEM ======================" << endl;
     cout << left << setw(26) << "PRODUTO"
-         << setw(18) << "PRECO"
+         << setw(16) << "PRECO"
          << setw(24) << "AREA" << endl;
     cout << "-----------------------------------------------------" << endl;
 
@@ -182,16 +153,13 @@ void mostrarSuper(Sector* listaSectores, Produto* armazem) {
     }
     else {
         while (aAtual != nullptr) {
-            cout << right << setw(2) << idProduto << ". " << left << setw(24) << aAtual->nome
+            cout << left << setw(26) << aAtual->nome
                  << right << setw(2) << aAtual->preco << left << setw(14) << " euros"
                  << left << setw(24) << aAtual->area << endl;
             aAtual = aAtual->next;
-            idProduto++;
         }
     }
     cout << "=====================================================\n" << endl;
 
     system("pause");
-
-    exibirMenu(listaSectores, armazem);
 }
