@@ -40,6 +40,8 @@ void inicializarSupermercado(Sector*& listaSectores);
 void inicializarArmazem(Produto*& armazem, Sector* listaSectores);
 void mostrarSuper(Sector* listaSectores, Produto* armazem);
 void exibirMenu(Sector* setores, Produto* armazem);
+void exibirMenuGestao(Sector* setores, Produto* armazem);
+bool produtoJaExisteNaArea(Sector* listaSectores, string nomeProduto, string areaAlvo);
 void dezProdutosRandom(Produto*& armazem, Sector* listaSectores);
 NoVenda* inserirNaArvore(NoVenda* raiz, string nome, int preco);
 void verificarVendas(Sector* listaSectores);

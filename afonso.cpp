@@ -138,6 +138,24 @@ void inicializarArmazem(Produto*& armazem, Sector* listaSectores) {
     delete[] fornecedores;
 }
 
+bool produtoJaExisteNaArea(Sector* listaSectores, string nomeProduto, string areaAlvo) {
+    Sector* sAtual = listaSectores;
+
+    while (sAtual != nullptr) {
+        if (sAtual->area == areaAlvo) {
+            Produto* pAtual = sAtual->listaProdutos;
+            while (pAtual != nullptr) {
+                if (pAtual->nome == nomeProduto) {
+                    return true;
+                }
+                pAtual = pAtual->next;
+            }
+        }
+        sAtual = sAtual->next;
+    }
+    return false;
+}
+
 void mostrarSuper(Sector* listaSectores, Produto* armazem) {
     Sector* sAtual = listaSectores;
     int idProduto = 1;
@@ -194,4 +212,106 @@ void mostrarSuper(Sector* listaSectores, Produto* armazem) {
     system("pause");
 
     exibirMenu(listaSectores, armazem);
+}
+
+void removerProduto(Sector* listaSectores, Produto*& armazem, string nomeProduto) {
+    Sector* sAtual = listaSectores;
+
+    while (sAtual != nullptr) {
+        Produto* pAtual = sAtual->listaProdutos;
+        Produto* pAnterior = nullptr;
+
+        while (pAtual != nullptr) {
+            if (pAtual->nome == nomeProduto) {
+                if (pAnterior == nullptr)
+                    sAtual->listaProdutos = pAtual->next;
+                else
+                    pAnterior->next = pAtual->next;
+                    pAtual = pAtual->next;
+
+                    sAtual->ocupacao--;
+                    cout << "Produto removido do sector " << sAtual->id << endl;
+            }
+            else {
+                pAnterior = pAtual;
+                pAtual = pAtual->next;
+            }
+        }
+
+        sAtual = sAtual->next;
+    }
+
+    Produto* apAtual = armazem;
+    Produto* apAnterior = nullptr;
+
+    while (apAtual != nullptr) {
+        if (apAtual->nome == nomeProduto) {
+            if (apAnterior == nullptr) {
+                apAtual = apAtual->next;
+            }
+            else {
+                apAnterior->next = apAtual->next;
+                apAtual = apAtual->next;
+
+                cout << "Produto removido do armazem" << endl << endl;
+            }
+        }
+        else {
+            apAnterior = apAtual;
+            apAtual = apAtual->next;
+        }
+    }
+}
+
+void exibirMenuGestao(Sector* setores, Produto* armazem) {
+    system("cls");
+
+    int opcao;
+    string nome;
+
+    cout << "\n***** Bem Vindo Gestor *****" << endl;
+    cout << "(1) - Remover Produto" << endl;
+    cout << "(2) - Atualizar Preco" << endl;
+    cout << "(3) - Iniciar Campanha" << endl;
+    cout << "(4) - Gravar supermercado" << endl;
+    cout << "(5) - Carregar supermercado" << endl;
+    cout << "(6) - Imprimir produtos" << endl;
+    cout << "(7) - Criar nova area" << endl;
+    cout << "(8) - Mostrar registo de vendas" << endl;
+    cout << "(0) - Voltar" << endl;
+    cout << "\n****************************" << endl << endl;
+    cout << "Escolha: ";
+    cin >> opcao;
+
+    switch (opcao) {
+        case 1:
+            system("cls");
+            cout << "\n****************************" << endl;
+            cout << "Nome do produto a remover: ";
+            cin.ignore();
+            getline(cin, nome);
+            system("cls");
+            removerProduto(setores, armazem, nome);
+
+            system("pause");
+            exibirMenuGestao(setores, armazem);
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        default:
+            mostrarSuper(setores, armazem);
+            break;
+    }
 }

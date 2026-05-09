@@ -93,6 +93,21 @@ void reporStock(Sector* listaSectores, Produto*& armazem) {
             break;
         }
 
+        Produto* pCandidato = armazem;
+
+        if (produtoJaExisteNaArea(listaSectores, pCandidato->nome, pCandidato->area)) {
+            armazem = armazem->next;
+            pCandidato->next = nullptr;
+            Produto* ultimo = armazem;
+            while (ultimo->next != nullptr) {
+                ultimo = ultimo->next;
+            }
+            ultimo->next = pCandidato;
+
+            cout << "Produto repetido na area " << pCandidato->area << ": " << pCandidato->nome << " (fica no armazem)" << endl;
+            continue;
+        }
+
         // 1. Tirar o primeiro produto do armazém (O mais antigo)
         Produto* pAposentado = armazem;
         armazem = armazem->next; // O segundo passa a ser o primeiro
@@ -109,7 +124,7 @@ void reporStock(Sector* listaSectores, Produto*& armazem) {
             cout << "Produto " << pAposentado->nome << " movido para Sector " << sDestino->id << endl;
         }
         else {
-            cout << "Sem espaco nos setores para: " << pAposentado->nome << " (Area: " << pAposentado->area << ")" << endl;
+            cout << "Sem espaco nos sectores para: " << pAposentado->nome << " (Area: " << pAposentado->area << ")" << endl;
             delete pAposentado;
         }
     }

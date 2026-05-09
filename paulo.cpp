@@ -6,7 +6,7 @@ void exibirMenu(Sector* setores, Produto* armazem) {
     cout << "\n======================================" << endl;
     cout << "(S)eguinte Ciclo (Vender e Repor)" << endl;
     cout << "(G)estao" << endl;
-    cout << "(Q)uit" << endl;
+    cout << "(Q)uit" << endl << endl;
     cout << "Escolha: ";
     cin >> opcao;
 
@@ -23,10 +23,7 @@ void exibirMenu(Sector* setores, Produto* armazem) {
         case 'g':
         case 'G':
             system("cls");
-            cout << "em desenvolvimento";
-
-            system("pause");
-            mostrarSuper(setores, armazem);
+            exibirMenuGestao(setores, armazem);
             break;
         default:
             break;
