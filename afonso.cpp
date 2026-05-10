@@ -263,10 +263,27 @@ void removerProduto(Sector* listaSectores, Produto*& armazem, string nomeProduto
     }
 }
 
+void alterarPreco(Produto*& armazem, string nomeProduto, int novoPreco) {
+
+    Produto* apAtual = armazem;
+
+    while (apAtual != nullptr) {
+        if (apAtual->nome == nomeProduto) {
+            apAtual->preco = novoPreco;
+            apAtual = apAtual->next;
+
+            cout << "Preco atualizado!" << endl;
+        }
+        else {
+            apAtual = apAtual->next;
+        }
+    }
+}
+
 void exibirMenuGestao(Sector* setores, Produto* armazem) {
     system("cls");
 
-    int opcao;
+    int opcao, preco;
     string nome;
 
     cout << "\n***** Bem Vindo Gestor *****" << endl;
@@ -297,6 +314,20 @@ void exibirMenuGestao(Sector* setores, Produto* armazem) {
             exibirMenuGestao(setores, armazem);
             break;
         case 2:
+            system("cls");
+            cout << "\n****************************" << endl;
+            cout << "Nome do(s) produto(s): ";
+            cin.ignore();
+            getline(cin, nome);
+
+            cout << "\nNovo preco: ";
+            cin >> preco;
+
+            system("cls");
+            alterarPreco(armazem, nome, preco);
+
+            system("pause");
+            exibirMenuGestao(setores, armazem);
             break;
         case 3:
             break;

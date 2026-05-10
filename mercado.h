@@ -9,7 +9,7 @@ struct Produto {
     string nome;
     string fornecedor;
     string area;
-    float preco;
+    int preco;
 
     Produto* next;
 };
@@ -41,6 +41,8 @@ void inicializarArmazem(Produto*& armazem, Sector* listaSectores);
 void mostrarSuper(Sector* listaSectores, Produto* armazem);
 void exibirMenu(Sector* setores, Produto* armazem);
 void exibirMenuGestao(Sector* setores, Produto* armazem);
+void removerProduto(Sector* listaSectores, Produto*& armazem, string nomeProduto);
+void alterarPreco(Produto*& armazem, string nomeProduto, int novoPreco);
 bool produtoJaExisteNaArea(Sector* listaSectores, string nomeProduto, string areaAlvo);
 void dezProdutosRandom(Produto*& armazem, Sector* listaSectores);
 NoVenda* inserirNaArvore(NoVenda* raiz, string nome, int preco);
