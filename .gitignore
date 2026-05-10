@@ -7,6 +7,7 @@
 # 3. Exceções: Permitir apenas arquivos .h e .cpp
 !*.h
 !*.cpp
+!*.txt
 
 # 4. (Opcional) Re-ignorar arquivos específicos dentro das pastas se necessário
 # Se houver algum .h ou .cpp dentro de pastas como build/ que você ainda queira ignorar:
