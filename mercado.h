@@ -45,6 +45,7 @@ void exibirMenu(Sector* setores, Produto* armazem);
 void exibirMenuGestao(Sector* setores, Produto* armazem);
 void removerProduto(Sector* listaSectores, Produto*& armazem, string nomeProduto);
 void alterarPreco(Produto*& armazem, string nomeProduto, int novoPreco);
+void criarArea(Sector*& listaSectores, string nomeArea, string respSector, int capSector);
 void atualizarCiclosCampanha(Sector* listaSectores, Produto* armazem);
 bool produtoJaExisteNaArea(Sector* listaSectores, string nomeProduto, string areaAlvo);
 void dezProdutosRandom(Produto*& armazem, Sector* listaSectores);

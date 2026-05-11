@@ -342,11 +342,35 @@ void atualizarCiclosCampanha(Sector* listaSectores, Produto* armazem) {
     }
 }
 
+void criarArea(Sector*& listaSectores, string nomeArea, string respSector, int capSector) {
+    Sector* novo = new Sector;
+
+    Sector* aux = listaSectores;
+    while (aux->next != nullptr) {
+        aux = aux->next;
+    }
+
+    novo->id = aux->id + 1;
+    novo->area = nomeArea;
+    novo->responsavel = respSector;
+    novo->capacidade = capSector;
+    novo->ocupacao = 0;
+    novo->listaProdutos = nullptr;
+    novo->produtosVendidos = nullptr;
+    novo->next = nullptr;
+
+    Sector* aux2 = listaSectores;
+    while (aux2->next != nullptr) aux2 = aux2->next;
+    aux2->next = novo;
+
+    cout << "Sector " << novo->id << " criado com a area " << novo->area << endl << endl;
+}
+
 void exibirMenuGestao(Sector* setores, Produto* armazem) {
     system("cls");
 
-    int opcao, preco, desconto, dias;
-    string nome;
+    int opcao, preco, desconto, dias, capSector;
+    string nome, nome2;
 
     cout << "\n***** Bem Vindo Gestor *****" << endl;
     cout << "(1) - Remover Produto" << endl;
@@ -417,6 +441,25 @@ void exibirMenuGestao(Sector* setores, Produto* armazem) {
         case 6:
             break;
         case 7:
+            system("cls");
+            cout << "\n****************************" << endl;
+            cout << "Sera necessaria a criacao de um novo setor para adicionar uma area!" << endl << endl;
+            system("pause");
+            system("cls");
+            cout << "\n****************************" << endl;
+            cout << "Nome da Nova Area: ";
+            cin.ignore();
+            getline(cin, nome);
+            cout << "Responsavel pelo Sector: ";
+            cin.ignore();
+            getline(cin, nome2);
+            cout << "Capacidade do Sector: ";
+            cin >> capSector;
+            system("cls");
+            criarArea(setores, nome, nome2, capSector);
+
+            system("pause");
+            exibirMenuGestao(setores, armazem);
             break;
         case 8:
             break;
