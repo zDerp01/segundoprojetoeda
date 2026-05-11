@@ -15,6 +15,7 @@ void exibirMenu(Sector* setores, Produto* armazem) {
         case 'S':
             system("cls");
             verificarVendas(setores);
+            atualizarCiclosCampanha(setores, armazem);
             reporStock(setores, armazem);
 
             system("pause");

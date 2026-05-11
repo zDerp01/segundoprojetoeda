@@ -280,10 +280,72 @@ void alterarPreco(Produto*& armazem, string nomeProduto, int novoPreco) {
     }
 }
 
+void iniciarCampanha(Sector* listaSectores, Produto* armazem, string nomeArea, int desconto, int numCiclos) {
+    Sector* sAtual = listaSectores;
+    while (sAtual != nullptr) {
+        Produto* pAtual = sAtual->listaProdutos;
+        while (pAtual != nullptr) {
+            if (pAtual->area == nomeArea && pAtual->ciclosPromo == 0) {
+                pAtual->precoOriginal = pAtual->preco;
+                pAtual->preco -= (pAtual->preco * desconto / 100);
+                pAtual->ciclosPromo = numCiclos;
+            }
+            pAtual = pAtual->next;
+        }
+        sAtual = sAtual->next;
+    }
+
+    Produto* apAtual = armazem;
+    while (apAtual != nullptr) {
+        if (apAtual->area == nomeArea && apAtual->ciclosPromo == 0) {
+            apAtual->precoOriginal = apAtual->preco;
+            apAtual->preco -= (apAtual->preco * desconto / 100);
+            apAtual->ciclosPromo = numCiclos;
+        }
+        apAtual = apAtual->next;
+    }
+    cout << "Campanha de " << desconto << "% aplicada a area " << nomeArea << " por " << numCiclos << " ciclos" << endl;
+}
+
+void atualizarCiclosCampanha(Sector* listaSectores, Produto* armazem) {
+    cout << "\n--- Campanhas ---" << endl;
+    Sector* sAtual = listaSectores;
+    while (sAtual != nullptr) {
+        Produto* pAtual = sAtual->listaProdutos;
+        bool terminouNesteSector = false;
+
+        while (pAtual != nullptr) {
+            if (pAtual->ciclosPromo > 0) {
+                pAtual->ciclosPromo--;
+                if (pAtual->ciclosPromo == 0) {
+                    pAtual->preco = pAtual->precoOriginal;
+                    terminouNesteSector = true;
+                }
+            }
+            pAtual = pAtual->next;
+        }
+
+        if (terminouNesteSector) {
+            cout << "A campanha no Sector " << sAtual->id << " (" << sAtual->area << ") terminou" << endl;
+        }
+
+        sAtual = sAtual->next;
+    }
+
+    Produto* apAtual = armazem;
+    while (apAtual != nullptr) {
+        if (apAtual->ciclosPromo) {
+            apAtual->ciclosPromo--;
+            if (apAtual->ciclosPromo == 0) apAtual->preco = apAtual->precoOriginal;
+        }
+        apAtual = apAtual->next;
+    }
+}
+
 void exibirMenuGestao(Sector* setores, Produto* armazem) {
     system("cls");
 
-    int opcao, preco;
+    int opcao, preco, desconto, dias;
     string nome;
 
     cout << "\n***** Bem Vindo Gestor *****" << endl;
@@ -316,7 +378,7 @@ void exibirMenuGestao(Sector* setores, Produto* armazem) {
         case 2:
             system("cls");
             cout << "\n****************************" << endl;
-            cout << "Nome do(s) produto(s): ";
+            cout << "Nome do produto: ";
             cin.ignore();
             getline(cin, nome);
 
@@ -330,6 +392,23 @@ void exibirMenuGestao(Sector* setores, Produto* armazem) {
             exibirMenuGestao(setores, armazem);
             break;
         case 3:
+            system("cls");
+            cout << "\n****************************" << endl;
+            cout << "Nome da area: ";
+            cin.ignore();
+            getline(cin, nome);
+
+            cout << "\nDesconto (%): ";
+            cin >> desconto;
+
+            cout << "\nDuracao da campanha (em ciclos): ";
+            cin >> dias;
+
+            system("cls");
+            iniciarCampanha(setores, armazem, nome, desconto, dias);
+
+            system("pause");
+            exibirMenuGestao(setores, armazem);
             break;
         case 4:
             break;

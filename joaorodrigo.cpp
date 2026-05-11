@@ -40,7 +40,7 @@ void verificarVendas(Sector* listaSectores) {
         while (pAtual != nullptr) {
             // Gera um número de 0 a 99. Se for menos de 25, vendeu!
             if (rand() % 100 < 25) {
-                cout << "O produto " << pAtual->nome << " foi vendido!" << endl;
+                cout << "O produto " << pAtual->nome << " foi vendido" << endl;
 
                 // 1. Guarda na árvore de vendidos do setor
                 sAtual->produtosVendidos = inserirNaArvore(sAtual->produtosVendidos, pAtual->nome, pAtual->preco);
