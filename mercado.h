@@ -56,4 +56,6 @@ void reporStock(Sector* listaSectores, Produto*& armazem);
 void corrigirInicializacao(Sector* listaSectores);
 void imprimirVendasOrdem(NoVenda* raiz);
 void mostrarRegistoVendas(Sector* listaSectores);
+void gravarSupermercado(Sector* setores, Produto* armazem, string nomeFicheiro);
+void carregarSupermercado(Sector*& setores, Produto*& armazem, string nomeFicheiro);
 #endif

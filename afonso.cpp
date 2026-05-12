@@ -435,8 +435,22 @@ void exibirMenuGestao(Sector* setores, Produto* armazem) {
             exibirMenuGestao(setores, armazem);
             break;
         case 4:
+            system("cls");
+            cout << "\n****************************" << endl;
+            cout << "Nome do ficheiro para gravar (ex: super.txt): ";
+            cin >> nome;
+            gravarSupermercado(setores, armazem, nome);
+            system("pause");
+            exibirMenuGestao(setores, armazem);
             break;
         case 5:
+            system("cls");
+            cout << "\n****************************" << endl;
+            cout << "Nome do ficheiro para carregar: ";
+            cin >> nome;
+            carregarSupermercado(setores, armazem, nome);
+            system("pause");
+            mostrarSuper(setores, armazem);
             break;
         case 6:
             break;

@@ -3,16 +3,21 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
     srand(time(NULL));
 
     Sector* setores = nullptr;
     Produto* armazem = nullptr;
 
-    inicializarSupermercado(setores);
-    inicializarArmazem(armazem, setores);
+    if (argc > 1) {
+        carregarSupermercado(setores, armazem, argv[1]);
+    }
 
-    corrigirInicializacao(setores);
+    if (setores == nullptr) {
+        inicializarSupermercado(setores);
+        inicializarArmazem(armazem, setores);
+        corrigirInicializacao(setores);
+    }
 
     mostrarSuper(setores, armazem);
 
