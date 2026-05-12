@@ -140,3 +140,44 @@ void corrigirInicializacao(Sector* listaSectores) {
         aux = aux->next;
     }
 }
+
+// Função auxiliar tua para ler a árvore em ordem crescente (Esquerda -> Raiz -> Direita)
+void imprimirVendasRecursivo(NoVenda* raiz) {
+    if (raiz == nullptr) return;
+
+    imprimirVendasRecursivo(raiz->esq);
+    cout << "  - " << raiz->nome << " | Preco: " << raiz->preco << " Euros" << endl;
+    imprimirVendasRecursivo(raiz->dir);
+}
+
+// 3.8 - A tua função principal de listagem por responsável
+void mostrarRegistoVendas(Sector* listaSectores) {
+    string nomeResp;
+    cout << "\n>>> Historico de Vendas por Responsavel <<<" << endl;
+    cout << "Introduza o nome do responsavel: ";
+    cin.ignore();
+    getline(cin, nomeResp);
+
+    Sector* atual = listaSectores;
+    bool encontrado = false;
+
+    while (atual != nullptr) {
+        if (atual->responsavel == nomeResp) {
+            encontrado = true;
+            cout << "\nResponsavel: " << atual->responsavel << " [Sector " << atual->id << "]" << endl;
+
+            if (atual->produtosVendidos == nullptr) {
+                cout << "  (Sem vendas registadas)" << endl;
+            } else {
+                // Chama a tua função de travessia da árvore
+                imprimirVendasRecursivo(atual->produtosVendidos);
+            }
+        }
+        atual = atual->next;
+    }
+
+    if (!encontrado) {
+        cout << "\nResponsavel nao encontrado." << endl;
+    }
+    cout << "\n------------------------------------------" << endl;
+}

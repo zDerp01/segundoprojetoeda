@@ -54,5 +54,6 @@ void verificarVendas(Sector* listaSectores);
 Sector* encontrarSectorParaProduto(Sector* listaSectores, string areaProduto);
 void reporStock(Sector* listaSectores, Produto*& armazem);
 void corrigirInicializacao(Sector* listaSectores);
-
+void imprimirVendasOrdem(NoVenda* raiz);
+void mostrarRegistoVendas(Sector* listaSectores);
 #endif

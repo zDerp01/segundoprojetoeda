@@ -462,6 +462,11 @@ void exibirMenuGestao(Sector* setores, Produto* armazem) {
             exibirMenuGestao(setores, armazem);
             break;
         case 8:
+            system("cls");
+            mostrarRegistoVendas(setores);
+
+            system("pause");
+            exibirMenuGestao(setores, armazem);
             break;
         default:
             mostrarSuper(setores, armazem);
