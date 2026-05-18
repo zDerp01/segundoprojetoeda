@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Mostra o menu principal e trata as escolhas
 void exibirMenu(Sector* setores, Produto* armazem) {
     char opcao;
     cout << "\n======================================" << endl;
@@ -34,7 +35,7 @@ void exibirMenu(Sector* setores, Produto* armazem) {
     }
 }
 
-// Funções Auxiliares para Gravar/Carregar
+// Guarda a arvore de vendas no ficheiro
 void guardarArvore(ofstream& file, NoVenda* raiz) {
     if (raiz == nullptr) {
         file << "#" << endl;
@@ -46,6 +47,7 @@ void guardarArvore(ofstream& file, NoVenda* raiz) {
     guardarArvore(file, raiz->dir);
 }
 
+// Carrega a arvore de vendas do ficheiro
 NoVenda* carregarArvore(ifstream& file) {
     string nome;
     if (!(getline(file, nome)) || nome == "#") {
@@ -62,6 +64,7 @@ NoVenda* carregarArvore(ifstream& file) {
     return novo;
 }
 
+// Guarda a lista de produtos no ficheiro
 void guardarListaProdutos(ofstream& file, Produto* p) {
     while (p != nullptr) {
         file << "P" << endl;
@@ -76,6 +79,7 @@ void guardarListaProdutos(ofstream& file, Produto* p) {
     file << "E" << endl;
 }
 
+// Carrega a lista de produtos do ficheiro
 Produto* carregarListaProdutos(ifstream& file) {
     string marker;
     Produto* cabeca = nullptr;
@@ -103,6 +107,7 @@ Produto* carregarListaProdutos(ifstream& file) {
     return cabeca;
 }
 
+// Apaga a lista de produtos da memoria
 void libertarProdutos(Produto*& p) {
     while (p != nullptr) {
         Produto* aux = p;
@@ -111,6 +116,7 @@ void libertarProdutos(Produto*& p) {
     }
 }
 
+// Apaga a arvore de vendas da memoria
 void libertarArvore(NoVenda* raiz) {
     if (raiz == nullptr) return;
     libertarArvore(raiz->esq);
@@ -118,6 +124,7 @@ void libertarArvore(NoVenda* raiz) {
     delete raiz;
 }
 
+// Limpa toda a memoria do supermercado
 void libertarSupermercado(Sector*& setores, Produto*& armazem) {
     libertarProdutos(armazem);
     while (setores != nullptr) {
@@ -129,6 +136,7 @@ void libertarSupermercado(Sector*& setores, Produto*& armazem) {
     }
 }
 
+// Guarda todo o estado do supermercado num ficheiro
 void gravarSupermercado(Sector* setores, Produto* armazem, string nomeFicheiro) {
     ofstream file(nomeFicheiro);
     if (!file.is_open()) {
@@ -151,13 +159,14 @@ void gravarSupermercado(Sector* setores, Produto* armazem, string nomeFicheiro) 
     file << "END_SECTORES" << endl;
     guardarListaProdutos(file, armazem);
     file.close();
-    cout << "Supermercado gravado com sucesso em " << nomeFicheiro << "!" << endl;
+    cout << "Supermercado gravado com sucesso!" << endl;
 }
 
+// Carrega o estado do supermercado de um ficheiro
 void carregarSupermercado(Sector*& setores, Produto*& armazem, string nomeFicheiro) {
     ifstream file(nomeFicheiro);
     if (!file.is_open()) {
-        cout << "Erro ao abrir o ficheiro " << nomeFicheiro << "!" << endl;
+        cout << "Erro ao abrir o ficheiro!" << endl;
         return;
     }
 
@@ -193,4 +202,37 @@ void carregarSupermercado(Sector*& setores, Produto*& armazem, string nomeFichei
     setores = sCabeca;
     file.close();
     cout << "Supermercado carregado com sucesso!" << endl;
+}
+
+// Lista todos os produtos (setores e armazem)
+void imprimirProdutos(Sector* setores, Produto* armazem) {
+    cout << "\n======= LISTA DE TODOS OS PRODUTOS =======" << endl;
+
+    Sector* sAtual = setores;
+    while (sAtual != nullptr) {
+        cout << "\nSetor: " << sAtual->id << " (" << sAtual->area << ")" << endl;
+        
+        Produto* pAtual = sAtual->listaProdutos;
+        if (pAtual == nullptr) {
+            cout << "  (Vazio)" << endl;
+        } else {
+            while (pAtual != nullptr) {
+                cout << "  - " << pAtual->nome << " [" << pAtual->fornecedor << "] : " << pAtual->preco << " euros" << endl;
+                pAtual = pAtual->next;
+            }
+        }
+        sAtual = sAtual->next;
+    }
+
+    cout << "\nArmazem:" << endl;
+    Produto* aAtual = armazem;
+    if (aAtual == nullptr) {
+        cout << "  (Vazio)" << endl;
+    } else {
+        while (aAtual != nullptr) {
+            cout << "  - " << aAtual->nome << " [" << aAtual->fornecedor << "] : " << aAtual->preco << " euros (" << aAtual->area << ")" << endl;
+            aAtual = aAtual->next;
+        }
+    }
+    cout << "==========================================" << endl;
 }

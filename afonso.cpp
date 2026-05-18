@@ -453,6 +453,10 @@ void exibirMenuGestao(Sector* setores, Produto* armazem) {
             mostrarSuper(setores, armazem);
             break;
         case 6:
+            system("cls");
+            imprimirProdutos(setores, armazem);
+            system("pause");
+            exibirMenuGestao(setores, armazem);
             break;
         case 7:
             system("cls");
