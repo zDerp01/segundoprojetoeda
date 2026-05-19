@@ -5,6 +5,12 @@
 
 using namespace std;
 
+/**
+* Função que recebe um nome de ficheiro e retorna uma lista dos nomes no ficheiro
+* @param nomeFicheiro - nome ficheiro
+* @param totalNomes - referencia ao total de nomes
+* @return - lista dos nomes no ficheiros
+*/
 string* listarFicheiro(string nomeFicheiro, int &totalNomes) {
     ifstream file(nomeFicheiro);
     string linha;
@@ -29,6 +35,16 @@ string* listarFicheiro(string nomeFicheiro, int &totalNomes) {
     return listaNomes;
 }
 
+/**
+* Função que recebe uma lista de nomes, fornecedores e areas, e o tamanho de cada lista e cria um produto
+* @param nomes - lista de nomes
+* @param tamanhoN - tamanho lista nomes
+* @param fornecedores - lista de fornecedores
+* @param tamanhoF - tamanho lista fornecedores
+* @param areasSetores - lista de areas
+* @param tamanhoA - tamanho lista areas
+* @return - produto
+*/
 Produto* criarProduto(string nomes[], int tamanhoN, string fornecedores[], int tamanhoF, string areasSetores[], int tamanhoA) {
     Produto* novo = new Produto;
 
@@ -42,6 +58,12 @@ Produto* criarProduto(string nomes[], int tamanhoN, string fornecedores[], int t
     return novo;
 }
 
+/**
+* Função que recebe o armazem e a lista de todos os setores e gera 10 produtos aleatorios para repor o armazem
+* usando a lista dos setores para saber que áreas existem no supermercado atual
+* @param armazem - o armazem
+* @param listaSectores - lista de setores
+*/
 void dezProdutosRandom(Produto*& armazem, Sector* listaSectores) {
     int tamanhoN = 0, tamanhoF = 0, tamanhoS = 0;
     string* nomes = listarFicheiro("produtos.txt", tamanhoN);
@@ -72,6 +94,10 @@ void dezProdutosRandom(Produto*& armazem, Sector* listaSectores) {
     delete[] fornecedores;
 }
 
+/**
+* Função que recebe a referencia da lista de todos os setores e inicializa-os
+* @param listaSectores - lista de setores
+*/
 void inicializarSupermercado(Sector*& listaSectores) {
     int numSectores = 8 + rand() % 5;
 
@@ -107,6 +133,12 @@ void inicializarSupermercado(Sector*& listaSectores) {
     delete[] listaAreas;
 }
 
+/**
+* Função que recebe a referencia do armazem e a lista de todos os setores e inicializa
+* o armazem com produtos de areas que existam nos setores
+* @param armazem - lista de produtos (armazem)
+* @param listaSectores - lista de setores
+*/
 void inicializarArmazem(Produto*& armazem, Sector* listaSectores) {
     int tamanhoN = 0, tamanhoF = 0, tamanhoS = 0;
 
@@ -138,6 +170,14 @@ void inicializarArmazem(Produto*& armazem, Sector* listaSectores) {
     delete[] fornecedores;
 }
 
+/**
+* Função que recebe a lista de setores, nome de um produto e uma area alvo, e diz se
+* ja tem um produto nessa area com o mesmo nome ou nao
+* @param listaSectores - lista de setores
+* @param nomeProduto - nome do produto em questao
+* @param areaAlvo - nome da area em questao
+* @return - true or false
+*/
 bool produtoJaExisteNaArea(Sector* listaSectores, string nomeProduto, string areaAlvo) {
     Sector* sAtual = listaSectores;
 
@@ -156,6 +196,12 @@ bool produtoJaExisteNaArea(Sector* listaSectores, string nomeProduto, string are
     return false;
 }
 
+/**
+* Função que recebe a lista de setores e o armazem, e mostra ambos no ecrã
+* @param listaSectores - lista de setores
+* @param armazem - lista de produtos (armazem)
+* @return - true or false
+*/
 void mostrarSuper(Sector* listaSectores, Produto* armazem) {
     Sector* sAtual = listaSectores;
     int idProduto = 1;
@@ -214,6 +260,12 @@ void mostrarSuper(Sector* listaSectores, Produto* armazem) {
     exibirMenu(listaSectores, armazem);
 }
 
+/**
+* Função que recebe a lista de setores, o armazem, e o nome de um produto. E remove esse produto do supermercado inteiro
+* @param listaSectores - lista de setores
+* @param armazem - lista de produtos (armazem)
+* @param nomeProduto - nome do produto a remover
+*/
 void removerProduto(Sector* listaSectores, Produto*& armazem, string nomeProduto) {
     Sector* sAtual = listaSectores;
 
@@ -263,6 +315,12 @@ void removerProduto(Sector* listaSectores, Produto*& armazem, string nomeProduto
     }
 }
 
+/**
+* Função que recebe o armazem, o nome de um produto e um preço. E depois altera o preço orignal pelo novo
+* @param armazem - lista de produtos (armazem)
+* @param nomeProduto - produto
+* @param novoPreco - novo preco
+*/
 void alterarPreco(Produto*& armazem, string nomeProduto, int novoPreco) {
 
     Produto* apAtual = armazem;
@@ -280,6 +338,15 @@ void alterarPreco(Produto*& armazem, string nomeProduto, int novoPreco) {
     }
 }
 
+/**
+* Função que recebe a lista de setores, o armazem, o nome de uma area, o desconto e o numero de ciclos.
+* Depois coloca a area alvo em desconto pelo numero de ciclos definidos
+* @param listaSectores - lista de setores
+* @param armazem - lista de produtos (armazem)
+* @param nomeArea - nome da area alvo
+* @param desconto - percentagem de desconto
+* @param numCiclos - numero de ciclos da campanha
+*/
 void iniciarCampanha(Sector* listaSectores, Produto* armazem, string nomeArea, int desconto, int numCiclos) {
     Sector* sAtual = listaSectores;
     while (sAtual != nullptr) {
@@ -307,6 +374,11 @@ void iniciarCampanha(Sector* listaSectores, Produto* armazem, string nomeArea, i
     cout << "Campanha de " << desconto << "% aplicada a area " << nomeArea << " por " << numCiclos << " ciclos" << endl;
 }
 
+/**
+* Função que recebe a lista de setores, o armazem e atualiza os campanhas
+* @param listaSectores - lista de setores
+* @param armazem - lista de produtos (armazem)
+*/
 void atualizarCiclosCampanha(Sector* listaSectores, Produto* armazem) {
     cout << "\n--- Campanhas ---" << endl;
     Sector* sAtual = listaSectores;
@@ -342,6 +414,14 @@ void atualizarCiclosCampanha(Sector* listaSectores, Produto* armazem) {
     }
 }
 
+/**
+* Função que recebe a lista de setores referenciada, o nome de uma area, o responsavel do setor e a capacidade
+* Depois cria uma area nova e um setor para essa area
+* @param listaSectores - lista de setores
+* @param nomeArea - nome da area a criar
+* @param respSector - responsavel do setor a ser criado
+* @param capSector - capacidade do setor a ser criado
+*/
 void criarArea(Sector*& listaSectores, string nomeArea, string respSector, int capSector) {
     Sector* novo = new Sector;
 
@@ -366,6 +446,11 @@ void criarArea(Sector*& listaSectores, string nomeArea, string respSector, int c
     cout << "Sector " << novo->id << " criado com a area " << novo->area << endl << endl;
 }
 
+/**
+* Função que recebe a lista de setores, o armazem e depois exibe as opçoes de gestao
+* @param setores - lista de setores
+* @param armazem - armazem
+*/
 void exibirMenuGestao(Sector* setores, Produto* armazem) {
     system("cls");
 
