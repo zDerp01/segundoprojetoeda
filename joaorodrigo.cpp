@@ -3,7 +3,14 @@
 
 using namespace std;
 
-// Função para meter os vendidos na árvore (simples e direta)
+/**
+ * Função que permite inserir um produto vendido na Árvore Binária de Pesquisa (BST) do respetivo setor.
+ * Organiza os nós de forma automática utilizando o preço como chave de ordenação.
+ * @param raiz - Ponteiro para o nó atual da árvore de vendas.
+ * @param nome - Nome do produto vendido a registar.
+ * @param preco - Preço do produto, utilizado para determinar a posição na árvore.
+ * @return Ponteiro para a raiz da árvore atualizada.
+ */
 NoVenda* inserirNaArvore(NoVenda* raiz, string nome, int preco) {
     // Se o lugar estiver vazio, cria o nó e mete lá os dados
     if (raiz == nullptr) {
@@ -26,6 +33,11 @@ NoVenda* inserirNaArvore(NoVenda* raiz, string nome, int preco) {
     return raiz;
 }
 
+/**
+ * Função que permite executar a simulação probabilística de vendas em todos os setores do supermercado.
+ * Remove os produtos vendidos das prateleiras e regista-os no histórico do setor.
+ * @param listaSectores - Ponteiro para o início da lista ligada de setores.
+ */
 void verificarVendas(Sector* listaSectores) {
     Sector* sAtual = listaSectores;
 
@@ -71,7 +83,12 @@ void verificarVendas(Sector* listaSectores) {
     }
 }
 
-// Função que tenta encontrar um setor para o produto
+/**
+ * Função que permite procurar um setor disponível que corresponda à área do produto e possua capacidade livre.
+ * @param listaSectores - Ponteiro para o início da lista ligada de setores.
+ * @param areaProduto - A categoria/área de mercado do produto a alocar.
+ * @return Ponteiro para o Sector elegível encontrado, ou nullptr se não houver espaço.
+ */
 Sector* encontrarSectorParaProduto(Sector* listaSectores, string areaProduto) {
     Sector* aux = listaSectores;
     while (aux != nullptr) {
@@ -83,7 +100,12 @@ Sector* encontrarSectorParaProduto(Sector* listaSectores, string areaProduto) {
     return nullptr; // Não encontrou nenhum setor livre para esta área
 }
 
-
+/**
+ * Função que permite transferir até 10 produtos do armazém central para as prateleiras dos setores correspondentes.
+ * Controla duplicações de mercado e faz a rotação de stock redundante.
+ * @param listaSectores - Ponteiro para o início da lista ligada de setores.
+ * @param armazem - Ponteiro de referência para a lista ligada de produtos no armazém.
+ */
 void reporStock(Sector* listaSectores, Produto*& armazem) {
     cout << "\n--- Reposicao de Stock ---" << endl;
 
@@ -133,6 +155,11 @@ void reporStock(Sector* listaSectores, Produto*& armazem) {
     cout << "Adicionalmente, 10 produtos foram adicionados ao armazem" << endl << endl;
 }
 
+/**
+ * Função que permite garantir que todos os ponteiros de árvores binárias de vendas são inicializados a vazio.
+ * Previne falhas graves de segmentação (Segmentation Faults) decorrentes de lixo de memória.
+ * @param listaSectores - Ponteiro para o início da lista ligada de setores.
+ */
 void corrigirInicializacao(Sector* listaSectores) {
     Sector* aux = listaSectores;
     while (aux != nullptr) {
@@ -141,7 +168,11 @@ void corrigirInicializacao(Sector* listaSectores) {
     }
 }
 
-// Função auxiliar tua para ler a árvore em ordem crescente (Esquerda -> Raiz -> Direita)
+/**
+ * Função que permite percorrer recursivamente a árvore binária de vendas em modo In-Order.
+ * Imprime os dados formatados dos produtos por ordem crescente de preço.
+ * @param raiz - Ponteiro para o nó atual da árvore de vendas que está a ser lido.
+ */
 void imprimirVendasRecursivo(NoVenda* raiz) {
     if (raiz == nullptr) return;
 
@@ -150,7 +181,10 @@ void imprimirVendasRecursivo(NoVenda* raiz) {
     imprimirVendasRecursivo(raiz->dir);
 }
 
-// 3.8 - A tua função principal de listagem por responsável
+/**
+ * Função que permite procurar um responsável no supermercado e disparar a impressão do seu histórico de vendas.
+ * @param listaSectores - Ponteiro para o início da lista ligada de setores.
+ */
 void mostrarRegistoVendas(Sector* listaSectores) {
     string nomeResp;
     cout << "\n>>> Historico de Vendas por Responsavel <<<" << endl;
